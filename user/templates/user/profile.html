@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<header>
+    <style>
+    .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+    }
+    </style>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img class = 'rounded-circle account-img' src="{{user.profile.image.url}}" alt="profile picture">
+        </div>
+        <div class="col-md-8">
+            <h3>{{user.username|upper}}</h3>
+            <h4>{{user.email}}</h4>
+        </div>
+    </div>
+</div>
+<hr>
+<!-- FORM -->
+<div class="container">
+    <legend>Update Profile</legend>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{u_form|crispy}}
+        {{p_form|crispy}}
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>
+{% endblock %}

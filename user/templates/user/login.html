@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container col-md-8">
+    <legend>Login into CodeBlog</legend>
+    <hr>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-success">Sign In</button>
+    </form>
+    <hr>
+    <small>
+        Don't have an account ?
+        <a href="{% url 'register' %}">Register </a>Now
+    </small>
+</div>
+{% endblock %}
