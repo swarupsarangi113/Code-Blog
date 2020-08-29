@@ -1,13 +1,6 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<!-- JUMBOTRON -->
-<div class="jumbotron text-center">
-  <div class="container">
-    <h1>Welcome To CodeBlog</h1>  
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
-    <a href="{% url 'blog-about' %}" class="btn btn-primary">Read More</a>
-  </div>
-</div>
+<h1 class="mb-3">Posts by {{ view.kwargs.username }} ({{page_obj.paginator.count}})</h1>
 {% for post in posts %}
   <div class="card mb-4">
   <div class="card-body">

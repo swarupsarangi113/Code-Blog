@@ -13,7 +13,7 @@
   </div>
   <div class="card-footer text-muted">
     Posted on {{object.date_posted|date:'F j, Y'}} by
-    <a href="#">{{object.author}}</a>
+    <a href="{% url 'user-posts' object.author.username %}">{{object.author}}</a>
   </div>
   </div>
 {% endblock %}
